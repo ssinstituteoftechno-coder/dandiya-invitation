@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Babu, Dandiya With Me? 💗</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:25px 15px;min-height:100vh;
+ background:radial-gradient(circle at top,#63254e,#211329 55%,#100b17);
+ color:#fff1e9;font-family:Arial,sans-serif;text-align:center
+}
+.card{
+ max-width:600px;margin:20px auto;padding:25px;
+ border:1px solid #ff85bb66;border-radius:25px;
+ background:#1d1123dd;box-shadow:0 15px 45px #0005
+}
+h1{font-family:Georgia,serif;font-size:clamp(38px,9vw,60px);color:#ff82bd}
+h1 span{display:block;font-style:italic}
+p{line-height:1.8;color:#f6d9e9}
+.letter{background:#fff0d9;color:#432039;padding:20px;border-radius:15px}
+.letter p{color:#432039}
+h2{color:#ff9bc9}
+.track{height:20px;background:#090711;border-radius:30px;overflow:hidden;border:1px solid #ff82bd}
+.fill{height:100%;width:0;background:linear-gradient(90deg,#ff4d9b,#ffc4dc,#ffd28a);transition:width 2s}
+.percent{font-size:35px;color:#ff9bc9;font-weight:bold;margin:12px}
+.stats{text-align:left;margin:25px 0}
+.stat{margin:16px 0}
+.stathead{display:flex;justify-content:space-between;margin-bottom:8px}
+.smalltrack{height:8px;background:#ffffff20;border-radius:20px;overflow:hidden}
+.smallfill{height:100%;width:0;background:#ff82bd;transition:width 1.5s}
+.details{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+.detail{padding:12px 5px;border:1px solid #ffffff22;border-radius:13px;font-size:13px;line-height:1.6}
+.detail b{display:block;color:#ffb3d5;margin-bottom:6px}
+.buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+button{border:0;border-radius:14px;padding:16px 8px;font-weight:bold;font-size:14px;cursor:pointer}
+.yes{background:#72e88d;color:#15351e}
+.no{background:#ff9cbd;color:#49162f}
+#reply{display:none;margin-top:22px;padding:18px;border:1px dashed #ff9bc9;border-radius:15px;line-height:1.8;color:#ffd8e9}
+footer{color:#d5aeca;font-size:12px;margin:25px}
+.heart{position:fixed;bottom:-30px;animation:up 4s linear forwards;pointer-events:none}
+@keyframes up{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
+@media(max-width:380px){.card{padding:17px}.detail{font-size:11px}}
+</style>
+</head>
+<body>
+
+<div style="color:#ffd28a;letter-spacing:3px">✨ A SPECIAL INVITATION ✨</div>
+
+<h1>Babu, Be My <span>Dandiya Partner? 💃</span></h1>
+<p>Ek festive night, thodi masti aur bohot saari cute memories...<br>
+Mere saath chaloge na, Babu? 🥹❤️</p>
+
+<div class="card">
+ <div class="letter">
+  <h2>Dear Babu ❤️</h2>
+  <p>Iss Dandiya season, mujhe kisi aur ke saath nahi,
+  <b>tumhare saath</b> dance karna hai!</p>
+  <p>Thodi awkward steps, bohot saari hasi, cute pictures
+  aur ek yaadgaar evening. 🫶</p>
+  <p><b>Toh batao, meri Dandiya date banoge?</b> 💗</p>
+ </div>
+</div>
+
+<div class="card">
+ <h2>💗 Compatibility Meter</h2>
+ <div class="percent" id="percent">0%</div>
+ <div class="track"><div class="fill" id="fill"></div></div>
+ <p>Scientific report by your hopeful boyfriend 😂</p>
+
+ <div class="stats">
+  <div class="stat">
+   <div class="stathead"><span>💃 Dance chemistry</span><b>98%</b></div>
+   <div class="smalltrack"><div class="smallfill" data-value="98"></div></div>
+  </div>
+  <div class="stat">
+   <div class="stathead"><span>😂 Masti together</span><b>100%</b></div>
+   <div class="smalltrack"><div class="smallfill" data-value="100"></div></div>
+  </div>
+  <div class="stat">
+   <div class="stathead"><span>🥹 Cute moments</span><b>100%</b></div>
+   <div class="smalltrack"><div class="smallfill" data-value="100"></div></div>
+  </div>
+  <div class="stat">
+   <div class="stathead"><span>🫶 Matching vibes</span><b>99%</b></div>
+   <div class="smalltrack"><div class="smallfill" data-value="99"></div></div>
+  </div>
+ </div>
+
+ <div class="details">
+  <div class="detail"><b>📅 WHEN</b>Jab tum free ho</div>
+  <div class="detail"><b>📍 WHERE</b>Jahan tum bolo</div>
+  <div class="detail"><b>👗 DRESS</b>Ethnic & cute</div>
+ </div>
+
+ <h2 style="margin-top:30px">So, Babu? 💌</h2>
+ <p>No pressure... bas thoda sa pyaar wala pressure 😌</p>
+ <div class="buttons">
+  <button class="yes" id="yes">💖 YES, LET'S GO!</button>
+  <button class="no" id="no">🙈 LET ME THINK</button>
+ </div>
+ <div id="reply"></div>
+</div>
+
+<footer>Made with ❤️, courage & lots of hope.<br>One Babu. One Dandiya date. ✨</footer>
+
+<script>
+let n=0;
+const timer=setInterval(()=>{
+ n=Math.min(n+2,100);
+ document.getElementById('percent').textContent=n+'%';
+ document.getElementById('fill').style.width=n+'%';
+ if(n===100)clearInterval(timer);
+},35);
+
+document.querySelectorAll('.smallfill').forEach((el,i)=>{
+ setTimeout(()=>el.style.width=el.dataset.value+'%',400+i*150);
+});
+
+function hearts(count){
+ for(let i=0;i<count;i++){
+  const h=document.createElement('span');
+  h.className='heart';
+  h.textContent=['💗','💖','✨','🌸'][Math.floor(Math.random()*4)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(18+Math.random()*20)+'px';
+  h.style.animationDuration=(3+Math.random()*3)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6500);
+ }
+}
+
+const reply=document.getElementById('reply');
+document.getElementById('yes').onclick=()=>{
+ reply.style.display='block';
+ reply.innerHTML='<b style="color:#ff9bc9;font-size:24px">YAYYYYY BABU! 🥹💖</b><br>Officially manifesting our Dandiya date! 💃🕺<br>Ab outfit choose karo, partner! 🫶';
+ hearts(35);
+};
+let tries=0;
+const funny=[
+ 'Aaram se soch lo, cutie 🥹💗',
+ 'Compatibility report ek baar aur dekho na 😂',
+ 'Ek cute dance step seekh lunga, promise! 😭',
+ 'Invite abhi bhi open hai, Babu 💌'
+];
+document.getElementById('no').onclick=()=>{
+ reply.style.display='block';
+ reply.textContent=funny[tries%funny.length];
+ tries++;
+ hearts(7);
+};
+</script>
+</body>
+</html>
